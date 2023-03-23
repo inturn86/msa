@@ -1,6 +1,0 @@
-token:
-  expiration_time: 864000000
-  secret: my_token_defaultt
-
-gateway:
-  ip: 127.0.0.1
