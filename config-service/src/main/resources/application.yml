@@ -3,8 +3,13 @@ server:
 spring:
   application:
     name: config-service
+  profiles:
+    active: native
   cloud:
     config:
       server:
+        native:
+          search-locations: C:\IntelliJ Projects\msa\natvie-file-repo
         git:
-          uri: file://C:/IntelliJ Projects/msa/git-local-repo
+          #git 연동
+          uri: https://github.com/inturn86/spring_cloud_config.git
