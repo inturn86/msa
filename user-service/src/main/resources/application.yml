@@ -5,10 +5,15 @@ server:
 spring:
   application:
     name: user-service
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:~/test;AUTO_SERVER=TRUE
-    username: sa
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:~/test;AUTO_SERVER=TRUE
+#    username: sa
   database:
     url: jdbc:h2:~/test;AUTO_SERVER=TRUE
   h2:
@@ -46,5 +51,5 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, beans
+        include: refresh, health, beans, busrefresh
 

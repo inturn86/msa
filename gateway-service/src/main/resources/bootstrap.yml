@@ -1,8 +1,8 @@
 # application yml 보다 먼저 get
 spring:
-  profiles:
-    active: prod
+  #profiles:
+  #  active: prod
   cloud:
     config:
       uri: http://127.0.0.1:8888
-      name: ecommerce
+      name: config-service
