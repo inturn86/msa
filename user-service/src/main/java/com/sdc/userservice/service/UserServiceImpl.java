@@ -5,7 +5,9 @@ import com.sdc.userservice.dto.UserDto;
 import com.sdc.userservice.repository.UserRepository;
 import com.sdc.userservice.repository.entity.UserEntity;
 import com.sdc.userservice.vo.ResponseOrder;
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.core.ParameterizedTypeReference;
@@ -25,6 +27,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceImpl implements UserService{
 
 	private final UserRepository userRepository;
@@ -33,7 +36,7 @@ public class UserServiceImpl implements UserService{
 
 	private final Environment env;
 
-	private final RestTemplate restTemplate;
+	//private final RestTemplate restTemplate;
 
 	private final OrderServiceClient orderServiceClient;
 
@@ -71,8 +74,13 @@ public class UserServiceImpl implements UserService{
 //		ResponseEntity<List<ResponseOrder>> orderListResponse = restTemplate.exchange(orderUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<ResponseOrder>>() {
 //		});
 		//List<ResponseOrder> ordersList = orderListResponse.getBody();
-
-		List<ResponseOrder> ordersList =  orderServiceClient.getOrders(userId);
+		List<ResponseOrder> ordersList = null;
+		try {
+			ordersList =  orderServiceClient.getOrders(userId);
+		}
+		catch (FeignException ex) {
+			log.error(ex.toString());
+		}
 
 		userDto.setOrders(ordersList);
 

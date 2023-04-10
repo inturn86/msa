@@ -41,7 +41,7 @@ greeting:
   
 logging:
   level:
-    com: debug
+    com.sdc.userservice.client: debug
 
 
 #token:
