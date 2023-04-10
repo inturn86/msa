@@ -58,7 +58,6 @@ public class OrderController {
 		List<ResponseOrder> result = new ArrayList<ResponseOrder>();
 
 		for(OrderEntity Order : OrderList) {
-
 			result.add(new ModelMapper().map(Order, ResponseOrder.class));
 		}
 

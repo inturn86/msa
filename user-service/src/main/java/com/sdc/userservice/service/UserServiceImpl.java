@@ -1,5 +1,6 @@
 package com.sdc.userservice.service;
 
+import com.sdc.userservice.client.OrderServiceClient;
 import com.sdc.userservice.dto.UserDto;
 import com.sdc.userservice.repository.UserRepository;
 import com.sdc.userservice.repository.entity.UserEntity;
@@ -34,6 +35,8 @@ public class UserServiceImpl implements UserService{
 
 	private final RestTemplate restTemplate;
 
+	private final OrderServiceClient orderServiceClient;
+
 	@Override
 	public UserDto createUser(UserDto userDto) {
 		userDto.setUserId(UUID.randomUUID().toString());
@@ -65,10 +68,12 @@ public class UserServiceImpl implements UserService{
 
 		String orderUrl = String.format(env.getProperty("order_service.url"), userId);
 		/* Using as rest template */
-		ResponseEntity<List<ResponseOrder>> orderListResponse = restTemplate.exchange(orderUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<ResponseOrder>>() {
-		});
+//		ResponseEntity<List<ResponseOrder>> orderListResponse = restTemplate.exchange(orderUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<ResponseOrder>>() {
+//		});
+		//List<ResponseOrder> ordersList = orderListResponse.getBody();
 
-		List<ResponseOrder> ordersList = orderListResponse.getBody();
+		List<ResponseOrder> ordersList =  orderServiceClient.getOrders(userId);
+
 		userDto.setOrders(ordersList);
 
 		return userDto;
