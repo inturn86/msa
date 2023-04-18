@@ -14,7 +14,7 @@ import java.util.Map;
 
 @EnableKafka
 @Configuration
-public class KafkaCOnsumerConfig {
+public class KafkaConsumerConfig {
 
 	@Bean
 	public ConsumerFactory<String, String> consumerFacotry() {

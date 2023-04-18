@@ -3,6 +3,7 @@ package com.sdc.orderservice.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sdc.orderservice.messagequeue.KafkaProducer;
 import org.apache.kafka.connect.cli.ConnectDistributed;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -32,6 +33,8 @@ public class OrderController {
 	private final Environment env;
 	private final OrderService orderService;
 
+	private final KafkaProducer kafkaProducer;
+
 	@GetMapping("/health_check")
 	public String status() {
 
@@ -43,11 +46,14 @@ public class OrderController {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
+		//jpa
 		OrderDto orderDto = mapper.map(orderDetails, OrderDto.class);
 		orderDto.setUserId(userId);
 		OrderDto createOrder = orderService.createOrder(orderDto);
 
 		ResponseOrder res = mapper.map(createOrder, ResponseOrder.class);
+
+		kafkaProducer.send("example-catalog-topic", orderDto);
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(res);
 	}
