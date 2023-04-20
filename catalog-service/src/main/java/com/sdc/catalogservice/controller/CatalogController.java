@@ -25,6 +25,11 @@ public class CatalogController {
 	private final Environment env;
 	private final CatalogService catalogService;
 
+//	public CatalogController(Environment env, CatalogService catalogService) {
+//		this.env = env;
+//		this.catalogService = catalogService;
+//	}
+
 	@GetMapping("/health_check")
 	public String status() {
 

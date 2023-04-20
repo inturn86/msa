@@ -20,7 +20,7 @@ import java.util.Map;
 public class KafkaConsumer {
 	private final CatalogRepository catalogRepository;
 
-	@KafkaListener(topics = "example-catalog-topic")
+	@KafkaListener(topics = "example-catalog-topic", groupId = "example")
 	public void updateQty(String kafkaMessage) {
 		log.info("Kafka Message: -> " + kafkaMessage);
 
