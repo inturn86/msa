@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Slf4j
 public class SecondRepository {
+
+	public void cjswoiie(){
+		log.error("cjswoiie");
+	}
 }
