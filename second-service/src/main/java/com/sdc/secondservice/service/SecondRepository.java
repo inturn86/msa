@@ -12,4 +12,8 @@ public class SecondRepository {
 	public void inturn86(){
 		log.error("inturn86");
 	}
+
+	public void test() {
+
+	}
 }
