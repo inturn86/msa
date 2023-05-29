@@ -20,6 +20,6 @@ public class SecondRepository {
 	}
 
 	private void userTest(){
-
+		log.error("test");
 	}
 }
