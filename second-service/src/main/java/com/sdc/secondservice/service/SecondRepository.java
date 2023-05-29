@@ -10,4 +10,8 @@ public class SecondRepository {
 	public void cjswoiie(){
 		log.error("cjswoiie");
 	}
+
+	public void inturn86(){
+		log.error("inturn86");
+	}
 }
