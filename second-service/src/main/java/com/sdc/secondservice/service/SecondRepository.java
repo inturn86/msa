@@ -8,11 +8,9 @@ import org.springframework.stereotype.Repository;
 public class SecondRepository {
 
 	public void cjswoiie(){
-		log.error("cjswoiie");
 	}
 
 	public void inturn86(){
-		log.error("inturn86");
 	}
 
 	public void test() {
@@ -20,6 +18,5 @@ public class SecondRepository {
 	}
 
 	private void userTest(){
-		log.error("test");
 	}
 }
