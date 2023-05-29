@@ -9,5 +9,7 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class SecondRepository {
 
-//
+	public void inturn86(){
+		log.error("inturn86");
+	}
 }
