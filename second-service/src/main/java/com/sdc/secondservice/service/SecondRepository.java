@@ -18,4 +18,8 @@ public class SecondRepository {
 	public void test() {
 
 	}
+
+	private void userTest(){
+
+	}
 }
