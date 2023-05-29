@@ -14,7 +14,7 @@ public class SecondRepository {
 	}
 
 	public void test() {
-		log.error("errro test log");
+		log.error("errro test logt tt tttt");
 	}
 
 	private void userTest(){
