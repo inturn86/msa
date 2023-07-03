@@ -21,5 +21,6 @@ public class SecondRepository {
 		log.error("2023.07.03 00:00:00");
 		log.error("t");
 		log.error("crush");
+		log.error("cjs logon");
 	}
 }
