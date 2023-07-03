@@ -8,14 +8,17 @@ import org.springframework.stereotype.Repository;
 public class SecondRepository {
 
 	public void cjswoiie(){
-		log.error("cjswoiie");
 	}
 
 	public void inturn86(){
-		log.error("inturn86");
 	}
 
 	public void test() {
+		log.error("errro test logt tt tttt");
+	}
 
+	private void userTest(){
+		log.error("t");
+		log.error("crush");
 	}
 }
