@@ -22,5 +22,6 @@ public class SecondRepository {
 		log.error("t");
 		log.error("crush");
 		log.error("cjs logon");
+		log.error("ets");
 	}
 }
