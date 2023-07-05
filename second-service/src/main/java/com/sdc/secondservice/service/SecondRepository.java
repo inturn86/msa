@@ -20,8 +20,7 @@ public class SecondRepository {
 	private void userTest(){
 		log.error("2023.07.03 00:00:00");
 		log.error("t");
-		log.error("crush");
-		log.error("cjs logon");
-		log.error("ets");
+		log.error("add_history??");
+
 	}
 }
