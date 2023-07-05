@@ -18,4 +18,8 @@ public class SecondService {
 		userHistoryService.addHistory();
 	}
 
+
+	public void modifyUser(){
+		log.error("modify User");
+	}
 }
