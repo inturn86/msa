@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 @RequiredArgsConstructor
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+@Service
+@Slf4j
 public class SecondService {
 
 	private final UserHistoryService userHistoryService;
@@ -18,4 +23,8 @@ public class SecondService {
 		userHistoryService.addHistory();
 	}
 
+
+	public void modifyUser(){
+		log.error("modify User");
+	}
 }
