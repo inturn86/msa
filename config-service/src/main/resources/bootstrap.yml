@@ -1,6 +1,7 @@
 encrypt:
 #  key: abcd1234
   key-store:
-    location: file:///C:\IntelliJ Projects\msa\keystore\apiEncryptionKey.jks
+#    location: file:///C:\IntelliJ Projects\msa\keystore\apiEncryptionKey.jks
+    location: file:/apiEncryptionKey.jks
     password: "@sdc.com"
     alias: apiEncryptionKey

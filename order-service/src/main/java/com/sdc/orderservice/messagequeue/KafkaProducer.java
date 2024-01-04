@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 public class KafkaProducer {
-	private final KafkaTemplate kafkaTemplate;
+	private final KafkaTemplate<String, String> kafkaTemplate;
 
 	public OrderDto send(String topic, OrderDto dto) {
 		ObjectMapper mapper = new ObjectMapper();
