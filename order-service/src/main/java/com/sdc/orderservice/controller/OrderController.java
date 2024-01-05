@@ -57,16 +57,16 @@ public class OrderController {
 		OrderDto orderDto = mapper.map(orderDetails, OrderDto.class);
 		orderDto.setUserId(userId);
 
-//		OrderDto createOrder = orderService.createOrder(orderDto);
-//		ResponseOrder res = mapper.map(createOrder, ResponseOrder.class);
+		OrderDto createOrder = orderService.createOrder(orderDto);
+		ResponseOrder res = mapper.map(createOrder, ResponseOrder.class);
 
 		orderDto.setOrderId(UUID.randomUUID().toString());
 		orderDto.setTotalPrice(orderDetails.getQty() * orderDetails.getUnitPrice());
 
 		kafkaProducer.send("example-catalog-topic", orderDto);
-		orderProducer.send("orders", orderDto);
+//		orderProducer.send("orders", orderDto);
 
-		ResponseOrder res = mapper.map(orderDto, ResponseOrder.class);
+//		ResponseOrder res = mapper.map(orderDto, ResponseOrder.class);
 
 		log.info("After Added orders data");
 		return ResponseEntity.status(HttpStatus.CREATED).body(res);
